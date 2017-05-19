@@ -1,0 +1,12 @@
+jar {
+    baseName = 'discovery-server'
+    version = '0.0.1-SNAPSHOT'
+}
+
+
+dependencies {
+	
+	compile("org.springframework.cloud:spring-cloud-starter-eureka-server") {
+	        exclude(module: "servlet-api") // Drags in an old 2.5 spec...
+	    }
+}
