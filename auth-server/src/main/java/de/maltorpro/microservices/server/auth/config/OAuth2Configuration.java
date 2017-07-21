@@ -1,4 +1,4 @@
-package de.maltorpro.microservices.server.oauth.config;
+package de.maltorpro.microservices.server.auth.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

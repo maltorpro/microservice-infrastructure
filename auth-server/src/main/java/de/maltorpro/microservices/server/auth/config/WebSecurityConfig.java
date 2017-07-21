@@ -1,4 +1,4 @@
-package de.maltorpro.microservices.server.oauth.config;
+package de.maltorpro.microservices.server.auth.config;
 
 
 import java.util.Arrays;

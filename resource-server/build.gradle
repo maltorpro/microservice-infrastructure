@@ -1,6 +1,6 @@
 jar {
-    baseName = 'resouce-server'
-    version = '0.0.1-SNAPSHOT'
+    baseName = "resouce-server"
+    version = "0.0.1-SNAPSHOT"
 }
 
 

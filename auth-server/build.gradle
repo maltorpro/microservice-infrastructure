@@ -1,6 +1,6 @@
 jar {
-    baseName = 'auth-server'
-    version = '0.0.1-SNAPSHOT'
+    baseName = "auth-server"
+    version = "0.0.1-SNAPSHOT"
 }
 
 
