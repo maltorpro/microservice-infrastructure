@@ -7,13 +7,15 @@ info:
 spring:
   cloud:
     config:
+      #Git server
       #server.git.uri: https://github.com/maltorpro/config-shop-demo
+      #Linux Mac OS
+      ##server.git.uri: file://${user.home}/Documents/workspace/config-shop-demo
       #Windows
       #server.git.uri: file:///${user.home}/workspace/config-shop-demo
-      #Linux
       server:
         git:
-          uri: file://${user.home}/Documents/workspace/config-shop-demo
+          uri: file:///${user.home}/workspace/config-shop-demo
       label: master
 
   rabbitmq:
