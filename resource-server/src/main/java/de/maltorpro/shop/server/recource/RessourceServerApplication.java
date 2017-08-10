@@ -1,4 +1,4 @@
-package de.maltorpro.microservices.server.recource;
+package de.maltorpro.shop.server.recource;
 
 import java.security.Principal;
 

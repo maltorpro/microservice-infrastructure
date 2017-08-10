@@ -15,7 +15,7 @@ spring:
       #server.git.uri: file:///${user.home}/workspace/config-shop-demo
       server:
         git:
-          uri: file:///${user.home}/workspace/config-shop-demo
+          uri: file://${user.home}/Documents/workspace/config-shop-demo
       label: master
 
   rabbitmq:

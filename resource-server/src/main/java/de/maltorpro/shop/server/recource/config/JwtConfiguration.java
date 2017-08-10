@@ -1,4 +1,4 @@
-package de.maltorpro.microservices.server.recource.config;
+package de.maltorpro.shop.server.recource.config;
 
 import java.io.IOException;
 

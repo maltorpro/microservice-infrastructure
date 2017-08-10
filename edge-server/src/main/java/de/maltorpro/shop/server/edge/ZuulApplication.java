@@ -1,4 +1,4 @@
-package de.maltorpro.microservices.server.edge;
+package de.maltorpro.shop.server.edge;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
