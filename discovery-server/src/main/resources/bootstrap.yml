@@ -15,11 +15,21 @@ spring:
       uri: http://localhost:8888
 
 ---
-# For deployment in Docker containers
+# For deployment in Docker1 containers
 spring:
-  profiles: docker
+  profiles: docker1
   cloud:
     config:
       discovery:
         enabled: false
-      uri: http://config:8888
+      uri: http://config-server:8888
+      
+---
+# For deployment in Docker2 containers
+spring:
+  profiles: docker2
+  cloud:
+    config:
+      discovery:
+        enabled: false
+      uri: http://config-server:8888
