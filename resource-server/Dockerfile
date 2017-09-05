@@ -2,7 +2,7 @@
 # FROM java:8
 FROM ofayau/ejre:8-jre
 
-EXPOSE 9999
+EXPOSE 9090
 
 ADD ./build/libs/*.jar app.jar
 
