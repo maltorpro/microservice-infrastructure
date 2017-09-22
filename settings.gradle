@@ -1,0 +1,5 @@
+include 	"discovery-server",
+ 		"edge-server",
+ 		"auth-server",
+ 		"resource-server",
+ 		"config-server"
