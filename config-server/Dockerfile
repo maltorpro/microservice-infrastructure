@@ -1,9 +1,9 @@
-FROM openjdk:8-jre-alpine
+FROM openjdk:8-jdk-alpine
+VOLUME /tmp
 
-ENV PROFILE docker
 EXPOSE 8888
 
 ADD ./build/libs/*.jar app.jar
 
-# Regarding settings of java.security.egd, see http://wiki.apache.org/tomcat/HowTo/FasterStartUp#Entropy_Source
-ENTRYPOINT ["java","-Dspring.profiles.active=$PROFILE","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
+ENV JAVA_OPTS=""
+ENTRYPOINT exec java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /app.jar
