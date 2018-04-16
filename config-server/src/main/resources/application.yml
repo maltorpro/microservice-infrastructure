@@ -16,7 +16,6 @@ spring:
       server:
         git:
           uri: file://${user.home}/Documents/workspace/config-shop-demo
-      label: master
 
   rabbitmq:
     host: localhost
