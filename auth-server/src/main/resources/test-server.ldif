@@ -42,7 +42,7 @@ objectclass: inetOrgPerson
 cn: Ben Alex
 sn: Alex
 uid: ben
-userPassword: {BCRYPT}$2y$10$6HD.HDgY7zeq6rIUWPI7guvc0zhMiLC6Nrekw0v8STOkIpAZOix82
+userPassword: {bcrypt}$2a$10$5xYIU5QfeCOGeGgaqY9Yx.FMD260orUBt2QwpG8/nkIRCRbjySIBW
 
 dn: uid=bob,ou=people,dc=springframework,dc=org
 objectclass: top

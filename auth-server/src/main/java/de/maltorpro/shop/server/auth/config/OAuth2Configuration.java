@@ -19,58 +19,58 @@ import org.springframework.security.oauth2.provider.token.store.KeyStoreKeyFacto
 @EnableAuthorizationServer
 public class OAuth2Configuration extends AuthorizationServerConfigurerAdapter {
 
-	@Autowired
-	private TokenStore tokenStore;
-	
-	@Autowired
-	private JwtAccessTokenConverter jwtTokenEnhancer;
+    @Autowired
+    private TokenStore tokenStore;
+
+    @Autowired
+    private JwtAccessTokenConverter jwtTokenEnhancer;
 
     @Autowired
     @Qualifier("authenticationManagerBean")
     private AuthenticationManager authenticationManager;
-	
-	
-	@Override
-    public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
-        endpoints.tokenStore(tokenStore).tokenEnhancer(jwtTokenEnhancer).authenticationManager(authenticationManager);
+
+    @Override
+    public void configure(AuthorizationServerEndpointsConfigurer endpoints)
+            throws Exception {
+        endpoints.tokenStore(tokenStore).tokenEnhancer(jwtTokenEnhancer)
+                .authenticationManager(authenticationManager);
     }
-	
-	@Bean
+
+    @Bean
     public TokenStore tokenStore() {
         return new JwtTokenStore(jwtTokenEnhancer);
     }
-	
-	@Bean
-	public JwtAccessTokenConverter jwtTokenEnhancer() {
-        KeyStoreKeyFactory keyStoreKeyFactory = new KeyStoreKeyFactory(new ClassPathResource("jwt.jks"), "Olitokivu657".toCharArray());
+
+    @Bean
+    public JwtAccessTokenConverter jwtTokenEnhancer() {
+        KeyStoreKeyFactory keyStoreKeyFactory = new KeyStoreKeyFactory(
+                new ClassPathResource("jwt.jks"), "Olitokivu657".toCharArray());
         JwtAccessTokenConverter converter = new JwtAccessTokenConverter();
         converter.setKeyPair(keyStoreKeyFactory.getKeyPair("jwt"));
         return converter;
     }
-    
-    
+
     @Override
-	public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-		// @formatter:off
-	 	clients.inMemory()
-	        .withClient("my-trusted-client")
-	            .authorizedGrantTypes("password", "authorization_code", "refresh_token", "implicit")
-	            .authorities("ROLE_CLIENT", "ROLE_TRUSTED_CLIENT", "ROLE_DEVELOPERS")
-	            .scopes("read", "write", "trust")
-	            .accessTokenValiditySeconds(3600)
-	            .refreshTokenValiditySeconds(160)
-		    .and()
-	        .withClient("my-client-with-registered-redirect")
-	            .authorizedGrantTypes("authorization_code")
-	            .authorities("ROLE_CLIENT")
-	            .scopes("read", "trust")
-	            .redirectUris("http://anywhere?key=value")
-		    .and()
-	        .withClient("my-client-with-secret")
-	            .authorizedGrantTypes("client_credentials", "password")
-	            .authorities("ROLE_CLIENT", "ROLE_TRUSTED_CLIENT")
-	            .scopes("read", "write")
-	            .secret("secret");
-	// @formatter:on
-	}
+    public void configure(ClientDetailsServiceConfigurer clients)
+            throws Exception {
+        // @formatter:off
+        clients.inMemory().withClient("my-trusted-client")
+                .authorizedGrantTypes("password", "authorization_code",
+                        "refresh_token", "implicit")
+                .authorities("ROLE_CLIENT", "ROLE_TRUSTED_CLIENT",
+                        "ROLE_DEVELOPERS, DEVELOPERS")
+                .scopes("read", "write", "trust")
+                .secret("{bcrypt}$2a$10$sS0z0zeKxMn0qGBOtDI1l.WPSPEXIhDpF6c0BwVRdWE5nctRfNjGm")
+                .accessTokenValiditySeconds(3600)
+                .refreshTokenValiditySeconds(160).and()
+                .withClient("my-client-with-registered-redirect")
+                .authorizedGrantTypes("authorization_code")
+                .authorities("ROLE_CLIENT").scopes("read", "trust")
+                .redirectUris("http://anywhere?key=value").and()
+                .withClient("my-client-with-secret")
+                .authorizedGrantTypes("client_credentials", "password")
+                .authorities("ROLE_CLIENT", "ROLE_TRUSTED_CLIENT")
+                .scopes("read", "write").secret("{noop}secret");
+        // @formatter:on
+    }
 }
