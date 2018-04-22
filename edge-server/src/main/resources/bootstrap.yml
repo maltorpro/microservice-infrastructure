@@ -13,6 +13,7 @@ spring:
         serviceId: config-server
         enabled: false
       uri: http://localhost:8888
+      label: http2-support      
 
 ---
 # For deployment in Docker containers
