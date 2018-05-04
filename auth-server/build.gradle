@@ -15,7 +15,8 @@ dependencies {
     compile("org.springframework:spring-tx")
     compile ("com.unboundid:unboundid-ldapsdk:3.1.1")
     
+    compile project(":infrastructure-utils")
+    
     testCompile("org.springframework.boot:spring-boot-starter-test")
     testCompile("org.springframework.security:spring-security-test")
-    
 }
