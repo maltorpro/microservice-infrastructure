@@ -2,6 +2,9 @@
 #
 # Check https://circleci.com/docs/2.0/language-java/ for more details
 #
+
+cache_key : &cache_key v2-microservice-infrastructure-{{ .Branch }}-{{ checksum "build.gradle" }}
+
 version: 2
 jobs:
   build:
@@ -26,20 +29,18 @@ jobs:
 
       # Download and cache dependencies
       - restore_cache:
-          keys:
-          - v1-dependencies-{{ checksum "build.gradle" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
+          key: *cache_key
 
-      - run: ./gradlew dependencies
+      - run: gradle dependencies
 
       - save_cache:
           paths:
+            - ~/.gradle
             - ~/.m2
-          key: v1-dependencies-{{ checksum "build.gradle" }}
+          key: *cache_key
         
-      # run tests!
-      - run: ./gradlew build
+      # run build
+      - run: gradle build -DcertificateCheck=false
       
       # store build jar files
       - store_artifacts:
