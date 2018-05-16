@@ -6,25 +6,24 @@ import java.security.NoSuchAlgorithmException;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ComponentScan;
 
 import de.maltorpro.shop.infrastructure.utils.SSLUtils;
 
 @SpringBootApplication
-@ComponentScan({ "de.maltorpro.shop.infrastructure.components" })
 public class AuthServerApplication {
 
-	public static void main(String[] args) throws KeyManagementException, NoSuchAlgorithmException {
-		
+    public static void main(String[] args)
+            throws KeyManagementException, NoSuchAlgorithmException {
 
-		String certificateCheck =  System.getProperty("certificateCheck");
-		
-		if(StringUtils.equals(certificateCheck, "false") || StringUtils.equals(certificateCheck, "0")) {
-			
-			SSLUtils.turnOffSslChecking();
-		}
-		
-		SpringApplication.run(AuthServerApplication.class, args);
-	}
-	
+        String certificateCheck = System.getProperty("certificateCheck");
+
+        if (StringUtils.equals(certificateCheck, "false")
+                || StringUtils.equals(certificateCheck, "0")) {
+
+            SSLUtils.turnOffSslChecking();
+        }
+
+        SpringApplication.run(AuthServerApplication.class, args);
+    }
+
 }
