@@ -18,17 +18,22 @@ import de.maltorpro.shop.infrastructure.utils.SSLUtils;
 @EnableZuulProxy
 @EnableResourceServer
 public class ZuulApplication {
-	
-    public static void main(String[] args) throws KeyManagementException, NoSuchAlgorithmException {
-    	
 
-		String certificateCheck =  System.getProperty("certificateCheck");
-		
-		if(StringUtils.equals(certificateCheck, "false") || StringUtils.equals(certificateCheck, "0")) {
-			
-			SSLUtils.turnOffSslChecking();
-		}
-    	
-        new SpringApplicationBuilder(ZuulApplication.class).web(WebApplicationType.SERVLET).run(args);
+    public static void main(String[] args)
+            throws KeyManagementException, NoSuchAlgorithmException {
+
+        String certificateCheckProp = System.getProperty("certificateCheck");
+        String certificateCheckEnv = System.getenv("CERTIFICATE_CHECK");
+
+        if (StringUtils.equals(certificateCheckProp, "false")
+                || StringUtils.equals(certificateCheckProp, "0")
+                || StringUtils.equals(certificateCheckEnv, "false")
+                || StringUtils.equals(certificateCheckEnv, "0")) {
+
+            SSLUtils.turnOffSslChecking();
+        }
+
+        new SpringApplicationBuilder(ZuulApplication.class)
+                .web(WebApplicationType.SERVLET).run(args);
     }
 }

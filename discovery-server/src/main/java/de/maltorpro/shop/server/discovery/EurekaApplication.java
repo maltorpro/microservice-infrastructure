@@ -19,10 +19,13 @@ public class EurekaApplication {
     public static void main(String[] args)
             throws KeyManagementException, NoSuchAlgorithmException {
 
-        String certificateCheck = System.getProperty("certificateCheck");
+        String certificateCheckProp = System.getProperty("certificateCheck");
+        String certificateCheckEnv = System.getenv("CERTIFICATE_CHECK");
 
-        if (StringUtils.equals(certificateCheck, "false")
-                || StringUtils.equals(certificateCheck, "0")) {
+        if (StringUtils.equals(certificateCheckProp, "false")
+                || StringUtils.equals(certificateCheckProp, "0")
+                || StringUtils.equals(certificateCheckEnv, "false")
+                || StringUtils.equals(certificateCheckEnv, "0")) {
 
             SSLUtils.turnOffSslChecking();
         }
