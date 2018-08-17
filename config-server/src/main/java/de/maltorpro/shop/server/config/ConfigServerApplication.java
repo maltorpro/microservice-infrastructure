@@ -10,25 +10,29 @@ import org.springframework.cloud.config.server.EnableConfigServer;
 
 import de.maltorpro.shop.infrastructure.utils.SSLUtils;
 
-
-
 @EnableConfigServer
 @SpringBootApplication
 public class ConfigServerApplication {
 
+    public static void main(String[] args)
+            throws KeyManagementException, NoSuchAlgorithmException {
 
-	public static void main(String[] args) throws KeyManagementException, NoSuchAlgorithmException {
-		
+        String certificateCheckProp = System.getProperty("certificateCheck");
+        String certificateCheckEnv = System.getenv("CERTIFICATE_CHECK");
 
-		String certificateCheck =  System.getProperty("certificateCheck");
-		
-		if(StringUtils.equals(certificateCheck, "false") || StringUtils.equals(certificateCheck, "0")) {
-			
-			SSLUtils.turnOffSslChecking();
-		}
-		
-		SpringApplication.run(ConfigServerApplication.class, args);
+        System.out.println("CERTIFICATE_CHECK value:" + certificateCheckEnv);
 
-	}
+        if (StringUtils.equals(certificateCheckProp, "false")
+                || StringUtils.equals(certificateCheckProp, "0")
+                || StringUtils.equals(certificateCheckEnv, "false")
+                || StringUtils.equals(certificateCheckEnv, "0")) {
+
+            System.out.println("turnOffSslChecking");
+            SSLUtils.turnOffSslChecking();
+        }
+
+        SpringApplication.run(ConfigServerApplication.class, args);
+
+    }
 
 }
