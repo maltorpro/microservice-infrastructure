@@ -1,6 +1,8 @@
 FROM openjdk:8-jdk-alpine
 VOLUME /tmp
 
+RUN apt-get update && apt-get install -y curl
+
 EXPOSE 8761
 
 ADD ./build/libs/*.jar app.jar
