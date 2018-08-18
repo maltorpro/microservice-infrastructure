@@ -23,4 +23,4 @@ spring:
     config:
       discovery:
         enabled: false
-      uri: https://docker-swarm:8888
+      uri: https://192.168.178.21:8888
