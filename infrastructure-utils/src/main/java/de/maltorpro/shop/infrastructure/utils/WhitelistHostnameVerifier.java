@@ -1,19 +1,20 @@
 package de.maltorpro.shop.infrastructure.utils;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLSession;
-import java.util.HashSet;
-import java.util.Set;
 
 // singleton
 public enum WhitelistHostnameVerifier implements HostnameVerifier {
     // these hosts get whitelisted
-    INSTANCE("localhost");
+    INSTANCE("localhost", "docker-swarm");
 
     private Set<String> whitelist = new HashSet<>();
-    private HostnameVerifier defaultHostnameVerifier =
-            HttpsURLConnection.getDefaultHostnameVerifier();
+    private HostnameVerifier defaultHostnameVerifier = HttpsURLConnection
+            .getDefaultHostnameVerifier();
 
     WhitelistHostnameVerifier(String... hostnames) {
         for (String hostname : hostnames) {
