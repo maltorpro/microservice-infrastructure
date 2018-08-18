@@ -23,4 +23,4 @@ spring:
     config:
       discovery:
         enabled: false
-      uri: https://192.168.178.21:8888
+      uri: https://config-server:8888

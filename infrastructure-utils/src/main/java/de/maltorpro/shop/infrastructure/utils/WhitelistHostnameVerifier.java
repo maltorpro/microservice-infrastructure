@@ -10,7 +10,7 @@ import javax.net.ssl.SSLSession;
 // singleton
 public enum WhitelistHostnameVerifier implements HostnameVerifier {
     // these hosts get whitelisted
-    INSTANCE("localhost", "192.168.178.21");
+    INSTANCE("localhost", "config-server");
 
     private Set<String> whitelist = new HashSet<>();
     private HostnameVerifier defaultHostnameVerifier = HttpsURLConnection
