@@ -11,7 +11,8 @@ import javax.net.ssl.SSLSession;
 public enum WhitelistHostnameVerifier implements HostnameVerifier {
     // these hosts get whitelisted
     INSTANCE("localhost", "config-server", "discovery-server",
-            "resource-server");
+            "resource-server", "product-service", "recommendation-service",
+            "review-service");
 
     private Set<String> whitelist = new HashSet<>();
     private HostnameVerifier defaultHostnameVerifier = HttpsURLConnection
