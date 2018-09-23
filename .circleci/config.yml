@@ -3,7 +3,7 @@
 # Check https://circleci.com/docs/2.0/language-java/ for more details
 #
 
-cache_key : &cache_key v3-microservice-infrastructure-{{ .Branch }}-{{ checksum "build.gradle" }}
+cache_key : &cache_key v4-microservice-infrastructure-{{ .Branch }}-{{ checksum "build.gradle" }}
 
 version: 2
 jobs:
