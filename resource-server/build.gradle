@@ -1,14 +1,14 @@
 jar {
-    baseName = "resouce-server"
-    version = "0.0.1-SNAPSHOT"
+    archiveBaseName = "resouce-server"
+    archiveVersion = "0.0.1-SNAPSHOT"
 }
 
 
 dependencies {
 
-	compile("org.springframework.boot:spring-boot-starter-security")
-    compile("org.springframework.cloud:spring-cloud-starter-oauth2")
-	compile("org.springframework.security:spring-security-jwt")
-	
-	compile project(":infrastructure-utils")
+    implementation("org.springframework.boot:spring-boot-starter-security")
+    implementation("org.springframework.cloud:spring-cloud-starter-oauth2")
+    implementation("org.springframework.security:spring-security-jwt")
+
+    implementation project(":infrastructure-utils")
 }

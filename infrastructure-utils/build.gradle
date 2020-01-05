@@ -1,6 +1,6 @@
 jar {
-    baseName = "infrastructure-utils"
-    version = "0.0.1-SNAPSHOT"
+    archiveBaseName = "infrastructure-utils"
+    archiveVersion = "0.0.1-SNAPSHOT"
 }
 
 bootJar.enabled = false

@@ -37,20 +37,20 @@ subprojects {
 	}
 	
 	dependencies {
-	
-		compile("org.springframework.boot:spring-boot-starter-web") 
-    	compile("org.springframework.boot:spring-boot-starter-actuator")
-    	compile("org.springframework.cloud:spring-cloud-starter-config")
-    	
- 		compile ("org.springframework.cloud:spring-cloud-starter-sleuth")
- 		compile ("org.springframework.cloud:spring-cloud-starter-stream-rabbit")
-    	
-    	compile("net.logstash.logback:logstash-logback-encoder:4.9")
- 		compile("org.aspectj:aspectjweaver:1.8.10")
-		compile("org.springframework.boot:spring-boot-starter-aop")
-		compile ("commons-lang:commons-lang:2.6")
-		
-	    testCompile("org.springframework.boot:spring-boot-starter-test")
+
+		implementation("org.springframework.boot:spring-boot-starter-web")
+		implementation("org.springframework.boot:spring-boot-starter-actuator")
+		implementation("org.springframework.cloud:spring-cloud-starter-config")
+
+		implementation ("org.springframework.cloud:spring-cloud-starter-sleuth")
+		implementation ("org.springframework.cloud:spring-cloud-starter-stream-rabbit")
+
+		implementation("net.logstash.logback:logstash-logback-encoder:4.9")
+		implementation("org.aspectj:aspectjweaver:1.8.10")
+		implementation("org.springframework.boot:spring-boot-starter-aop")
+		implementation ("commons-lang:commons-lang:2.6")
+
+		testImplementation("org.springframework.boot:spring-boot-starter-test")
 	    	
 	    
 	}
