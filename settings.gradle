@@ -1,5 +1,6 @@
 include 	"discovery-server",
- 		"edge-server",
- 		"auth-server",
- 		"resource-server",
- 		"config-server"
+ 			"edge-server",
+ 			"auth-server",
+ 			"resource-server",
+ 			"config-server",
+ 			"infrastructure-utils"

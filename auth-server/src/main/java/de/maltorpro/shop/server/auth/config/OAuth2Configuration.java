@@ -63,10 +63,12 @@ public class OAuth2Configuration extends AuthorizationServerConfigurerAdapter {
                 .secret("{bcrypt}$2a$10$sS0z0zeKxMn0qGBOtDI1l.WPSPEXIhDpF6c0BwVRdWE5nctRfNjGm")
                 .accessTokenValiditySeconds(3600)
                 .refreshTokenValiditySeconds(160).and()
+
                 .withClient("my-client-with-registered-redirect")
                 .authorizedGrantTypes("authorization_code")
                 .authorities("ROLE_CLIENT").scopes("read", "trust")
-                .redirectUris("http://anywhere?key=value").and()
+                .redirectUris("https://anywhere?key=value").and()
+
                 .withClient("my-client-with-secret")
                 .authorizedGrantTypes("client_credentials", "password")
                 .authorities("ROLE_CLIENT", "ROLE_TRUSTED_CLIENT")

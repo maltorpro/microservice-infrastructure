@@ -1,10 +1,12 @@
 jar {
-    baseName = "discovery-server"
-    version = "0.0.1-SNAPSHOT"
+    archiveBaseName = "discovery-server"
+    archiveVersion = "0.0.1-SNAPSHOT"
 }
 
 
 dependencies {
-	
-	compile("org.springframework.cloud:spring-cloud-starter-netflix-eureka-server")
+
+    implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-server")
+
+    implementation project(":infrastructure-utils")
 }

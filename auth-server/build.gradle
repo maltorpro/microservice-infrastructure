@@ -1,21 +1,22 @@
 jar {
-    baseName = "auth-server"
-    version = "0.0.1-SNAPSHOT"
+    archiveBaseName = "auth-server"
+    archiveVersion = "0.0.1-SNAPSHOT"
 }
 
 
 dependencies {
 
-	compile("org.springframework.boot:spring-boot-starter-security")
-    compile("org.springframework.cloud:spring-cloud-starter-oauth2")
-	compile("org.springframework.security:spring-security-jwt")
+    implementation("org.springframework.boot:spring-boot-starter-security")
+    implementation("org.springframework.cloud:spring-cloud-starter-oauth2")
+    implementation("org.springframework.security:spring-security-jwt")
 
-    compile("org.springframework.ldap:spring-ldap-core")
-    compile("org.springframework.security:spring-security-ldap")
-    compile("org.springframework:spring-tx")
-    compile ("com.unboundid:unboundid-ldapsdk:3.1.1")
+    implementation("org.springframework.ldap:spring-ldap-core")
+    implementation("org.springframework.security:spring-security-ldap")
+    implementation("org.springframework:spring-tx")
+    implementation ("com.unboundid:unboundid-ldapsdk:3.1.1")
+
+    implementation project(":infrastructure-utils")
     
-    testCompile("org.springframework.boot:spring-boot-starter-test")
-    testCompile("org.springframework.security:spring-security-test")
-    
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation("org.springframework.security:spring-security-test")
 }

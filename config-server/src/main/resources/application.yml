@@ -1,5 +1,9 @@
 server:
   port: 8888
+  ssl:
+    key-store: classpath:cert.p12
+    key-store-password: c9xZpx
+  http2.enable: true
   
 info:
   component: Config Server
@@ -10,12 +14,12 @@ spring:
       #Git server
       #server.git.uri: https://github.com/maltorpro/config-shop-demo
       #Linux Mac OS
-      ##server.git.uri: file://${user.home}/Documents/workspace/config-shop-demo
+      server.git.uri: file://${user.home}/Documents/workspace/config-shop-demo
       #Windows
       #server.git.uri: file:///${user.home}/workspace/config-shop-demo
-      server:
-        git:
-          uri: file://${user.home}/Documents/workspace/config-shop-demo
+      #server:
+       # git:
+        #  uri: file:///D:/workspace/microservice-shop/config-shop-demo
 
   rabbitmq:
     host: localhost

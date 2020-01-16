@@ -1,14 +1,16 @@
 jar {
-    baseName = "edge-server"
-    version = "0.0.1-SNAPSHOT"
+    archiveBaseName = "edge-server"
+    archiveVersion = "0.0.1-SNAPSHOT"
 }
 
 
 dependencies {
-	
-	compile("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
 
-    compile("org.springframework.cloud:spring-cloud-starter-oauth2")
-    compile("org.springframework.cloud:spring-cloud-starter-security")
-	compile("org.springframework.cloud:spring-cloud-starter-netflix-zuul")
+    implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
+
+    implementation("org.springframework.cloud:spring-cloud-starter-oauth2")
+    implementation("org.springframework.cloud:spring-cloud-starter-security")
+    implementation("org.springframework.cloud:spring-cloud-starter-netflix-zuul")
+
+    implementation project(":infrastructure-utils")
 }
