@@ -8,6 +8,7 @@ import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.stereotype.Controller;
 
@@ -17,6 +18,7 @@ import de.maltorpro.shop.infrastructure.utils.SSLUtils;
 @Controller
 @EnableZuulProxy
 @EnableResourceServer
+@ComponentScan({ "de.maltorpro.shop.server.edge.configuration" })
 public class ZuulApplication {
 
     public static void main(String[] args)
